@@ -7,8 +7,8 @@
 <body>
 <form action="" method="POST">
     {% csrf_token %}
-    <input type="text">
-    <input type="submit">
+    <input type="text" name="city">
+    <button type="submit">Submit</button>
 </form>
 
 <h2>Temperature: {{ temperature }}</h2>

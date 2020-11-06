@@ -4,7 +4,8 @@ from .parser import GetWeather
 
 
 def home(request):
-    weather = GetWeather('kokshetau')
+    city_name = str(request.POST.get('city'))
+    weather = GetWeather(str(city_name))
     context = {
         'temperature': weather.get_temperature(),
         'humidity': weather.get_humidity(),
