@@ -29,10 +29,13 @@
             <div class="title logo">Логотип</div>
             <div class="centered">
                 <div class="title is-small">Укажите ваш город</div>
-                <input class="input" type="text" name="city" placeholder="Кокшетау" required/>
-                <div class="control">
-                    <button class="button btn-grad">Далее</button>
-                </div>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input class="input" type="text" name="city_name" placeholder="Кокшетау" required/>
+                    <div class="control">
+                        <button class="button btn-grad" type="submit">Далее</button>
+                    </div>
+                </form>
             </div>
         </div>
     </form>
@@ -44,9 +47,9 @@
             <img class="menu-btn" src="{% static 'weather_app/images/icons/menu.png' %}" alt=""/>
         </div>
         <div class="home__features">
-            <div class="title">Температура: <span>10 °C</span></div>
-            <div class="title">Ветер: <span>сильный</span></div>
-            <div class="title">Вероятность дождя: <span>Низкая</span></div>
+            <div class="title">Температура: <span>{{ temperature }} °C</span></div>
+            <div class="title">Ветер: {{ wind }}<span>сильный</span></div>
+            <div class="title">Вероятность дождя: {{ humidity }}<span>Низкая</span></div>
         </div>
         <div class="home__clothes">
             <div class="title">Рекомендуем надеть:</div>
