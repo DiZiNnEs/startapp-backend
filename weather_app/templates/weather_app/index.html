@@ -1,18 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-</head>
-<body>
-<form action="" method="POST">
-    {% csrf_token %}
-    <input type="text" name="city">
-    <button type="submit">Submit</button>
-</form>
-
-<h2>Temperature: {{ temperature }}</h2>
-<h2>Humidity: {{ humidity }}</h2>
-<h2>Wind: {{ wind }}</h2>
-</body>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <title>Подбор одежды</title>
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <!-- <link href="img/logo.png" rel="shortcut icon" type="image/x-icon" /> -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" />
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.0/animate.min.css" /> -->
+        <link rel="stylesheet" href="css/style.css?" />
+    </head>
+    <body>
+        <section class="section intro-section">
+            <div class="container">
+                <div class="title logo">Логотип</div>
+                <img src="img/3594620.png" alt="" />
+                <div class="subtitle">Это приложение поможет вам с выбором уличной одежды учитывая текущую погоду</div>
+                <div class="control">
+                    <div class="button btn-grad">Далее</div>
+                </div>
+            </div>
+        </section>
+        <section class="section city-section">
+            <form autocomplete="off">
+                <div class="container">
+                    <div class="title logo">Логотип</div>
+                    <div class="centered">
+                        <div class="title is-small">Укажите ваш город</div>
+                        <input class="input" type="text" name="city" placeholder="Кокшетау" required />
+                        <div class="control">
+                            <button class="button btn-grad">Далее</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <section class="section home-section">
+            <div class="container">
+                <div class="home__header">
+                    <div class="logo">Логотип</div>
+                    <img class="menu-btn" src="img/icons/menu.png" alt="" />
+                </div>
+                <div class="home__features">
+                    <div class="title">Температура: <span>10 °C</span></div>
+                    <div class="title">Ветер: <span>сильный</span></div>
+                    <div class="title">Вероятность дождя: <span>Низкая</span></div>
+                </div>
+                <div class="home__clothes">
+                    <div class="title">Рекомендуем надеть:</div>
+                    <ul>
+                        <li>Ветровку</li>
+                        <li>Шапку</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script> -->
+        <script src="js/main.js?"></script>
+    </body>
 </html>
