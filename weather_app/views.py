@@ -5,10 +5,6 @@ from .parser import GetWeather
 
 def home(request):
     city_name = str(request.POST.get('city_name'))
-    while city_name is 'None':
-        print('City name:', city_name)
-        if city_name is not 'None':
-            break
 
     weather = GetWeather(str(city_name))
     context = {
