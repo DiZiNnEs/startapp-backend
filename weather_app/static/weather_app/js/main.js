@@ -18,7 +18,7 @@ $(document).ready(() => {
         $(".modal").fadeOut();
         $.ajax({
             type: "POST",
-            url: "/api/today/kokshetau/?format=json",
+            url: "/api/weather/current/city%3Dкокшетау/?format=json",
             data: th.serialize(),
         }).done(function () {
             th.trigger("reset");
@@ -53,6 +53,16 @@ $(document).ready(() => {
                 EachModal = $('.modal[data-modal="' + modalId + '"]');
             overlay.fadeIn();
             EachModal.fadeIn();
+        });
+    });
+
+    // DiZiNnEs code
+    $(document).ready( () => {
+        $("#button-city").click( () => {
+            $.get("/api/weather/current/city%3Dкокшетау/?format=json", (data, status) => {
+                alert("Data: " + data + "\nStatus: " + status);
+                console.log("Data: " + data + "\nStatus: " + status)
+            });
         });
     });
 
