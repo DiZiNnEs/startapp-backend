@@ -1,29 +1,21 @@
 
 $(document).ready(() => {
 
-    $('.intro-section .button').on('click', function() {
-        $('.section').hide();
-        $('.city-section').fadeIn();
-    });
+    // $('.intro-section .button').on('click', function() {
+    //     $('.section').hide();
+    //     $('.city-section').fadeIn();
+    // });
 
-    $('.city-section form').on('submit', function() {
-        $('.section').hide();
-        $('.home-section').fadeIn();
-    });
+    // $('.city-section form').on('submit', function() {
+    //     $('.section').hide();
+    //     $('.home-section').fadeIn();
+    // });
 
   // E-mail Ajax Send
   $("form").submit(function (event) {
-    var th = $(this);
-        $(".overlay").fadeOut();
-        $(".modal").fadeOut();
-      $.ajax({
-          type: "POST",
-          url: "mail.php",
-          data: th.serialize(),
-      }).done(function () {
-          th.trigger("reset");
-      });
-      return false;
+    let city = $('#city').val();
+    window.location.href = "/home/city=" + city;
+    return false;
   });
 
   

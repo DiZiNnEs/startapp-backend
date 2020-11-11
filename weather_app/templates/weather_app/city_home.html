@@ -11,15 +11,28 @@
           rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.0/animate.min.css">
-    <link rel="stylesheet" href="{% static 'weather_app/styles/style.css' %}">
+    <link rel="stylesheet" href="{% static 'weather_app/styles/style.css'%}">
 </head>
 <body>
-<section class="section intro-section">
+<section class="section home-section">
     <div class="container">
-        <div class="title logo">Логотип</div>
-        <img src="{% static 'weather_app/images/3594620.png' %}" alt="">
-        <div class="subtitle">Это приложение поможет вам с выбором уличной одежды учитывая текущую погоду</div>
-        <div class="control"><a class="button btn-grad" href="{% url 'city' %}">Далее</a></div>
+        <div class="home__header">
+            <div class="logo">Логотип</div>
+            <img class="menu-btn" src="{% static 'weather_app/images/icons/menu.png' %}" alt="">
+        </div>
+        <div class="home__features">
+            <div class="title">City: {{ pk }}</div>
+            <div class="title">Температура: <span>{{ temp }}</span></div>
+            <div class="title">Ветер: <span>{{ wind }}</span></div>
+            <div class="title">Вероятность дождя: <span>{{ humidity }}</span></div>
+        </div>
+        <div class="home__clothes">
+            <div class="title">Рекомендуем надеть:</div>
+            <ul>
+                <li>Ветровку</li>
+                <li>Шапку</li>
+            </ul>
+        </div>
     </div>
 </section>
 <div class="overlay"></div>
