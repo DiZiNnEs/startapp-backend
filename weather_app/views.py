@@ -1,40 +1,29 @@
-from django.shortcuts import render
+from django.http import HttpResponse
+from django.views import generic
 
-from .parser import GetWeather
-
-
-def home(request):
-    # city_name = str(request.POST.get('city_name'))
-    # while city_name is 'None':
-    #     print('City name:', city_name)
-    #     if city_name is not 'None':
-    #         break
-    #
-    # weather = GetWeather(str(city_name))
-    # context = {
-    #     'temperature': weather.get_temperature(),
-    #     'humidity': weather.get_humidity(),
-    #     'wind': weather.get_wind(),
-    # }
-
-    return render(request, 'weather_app/home.html', {})
+from .parser import get_weather, weather_handling
 
 
-def index(request):
-    return render(request, 'weather_app/index.html', {})
+class HomeCityView(generic.TemplateView):
+    template_name = 'weather_app/city_home.html'
+    FileNotFoundError = HttpResponse('Error', status=500)
+    NotFoundError = HttpResponse('Error', status=500)
+
+    def get_context_data(self, **kwargs):
+        get_weather_parser = get_weather.GetWeather(city_name=kwargs.get('pk'))
+        weather = weather_handling.WeatherHandling(get_weather_parser)
+        context = {
+            'temp': weather.temperature_handle(),
+            'wind': weather.wind_handle(),
+            'humidity': weather.humidity_handle(),
+            'pk': kwargs.get('pk'),
+        }
+        return context
 
 
-def city(request):
-    return render(request, 'weather_app/city.html', {})
+class CityView(generic.TemplateView):
+    template_name = 'weather_app/city.html'
 
 
-def home_city(request, pk):
-    print(pk)
-    context = {
-        'temp': '920',
-        'wind': 'Ветер сильныйй',
-        'humidity': '90% влажность',
-        'pk': pk,
-    }
-
-    return render(request, 'weather_app/city_home.html', context)
+class IndexView(generic.TemplateView):
+    template_name = 'weather_app/index.html'
