@@ -1,39 +1,27 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    {% load static %}
-    <meta charset="utf-8">
+{% extends 'weather_app/base.html' %}
+{% load static %}
+{% block head %}
     <title>Подбор одежды</title>
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-    <meta content="ie=edge" http-equiv="x-ua-compatible">
-    <link href="img/logo.png" rel="shortcut icon" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
-          rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.0/animate.min.css">
-    <link rel="stylesheet" href="{% static 'weather_app/styles/style.css' %}">
-</head>
-<body>
-<section class="section city-section">
-    <form autocomplete="off">
-        <div class="container">
-            <div class="title logo">Логотип</div>
-            <div class="centered">
-                <div class="title is-small">Укажите ваш город</div>
-                <input class="input" type="text" id="city" name="city" placeholder="Кокшетау" required>
-                <div class="control">
-                    <button class="button btn-grad" type="submit">Далее</button>
+{% endblock %}
+
+{% block body %}
+    <section class="section city-section">
+        <form autocomplete="off">
+            <div class="container">
+                <div class="title logo">Логотип</div>
+                <div class="centered">
+                    <div class="title is-small">Укажите ваш город</div>
+                    <input class="input" type="text" id="city" name="city" placeholder="Кокшетау" required>
+                    <div class="control">
+                        <button class="button btn-grad" type="submit">Далее</button>
+                    </div>
                 </div>
             </div>
+        </form>
+    </section>
+    <div class="overlay"></div>
+    <div class="modal callback" data-modal="callback">
+        <div class="modal__close"><img class="img-svg" src="{% static 'weather_app/images/icons/close.svg' %}" alt="">
         </div>
-    </form>
-</section>
-<div class="overlay"></div>
-<div class="modal callback" data-modal="callback">
-    <div class="modal__close"><img class="img-svg" src="{% static 'weather_app/images/icons/close.svg' %}" alt=""></div>
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
-<script src="{% static 'weather_app/js/main.js' %}"></script>
-</body>
-</html>
+    </div>
+{% endblock %}
