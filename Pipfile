@@ -10,6 +10,7 @@ django = "*"
 djangorestframework = "*"
 pyowm = "*"
 python-dotenv = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.9"
