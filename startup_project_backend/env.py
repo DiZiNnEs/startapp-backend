@@ -13,9 +13,9 @@ def env(key: str) -> str:
 
 def env_bool(key: str) -> bool:
     value = env(key)
-    if value == 'True':
+    if value == 'true':
         return True
-    if value == 'False':
+    if value == 'false':
         return False
     raise EnvironmentError(f'key {key} can only be True or False')
 
