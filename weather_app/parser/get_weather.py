@@ -11,10 +11,6 @@ class GetWeather:
         self.__MANAGER = self.__API.weather_manager()
 
     def __get_weather(self):
-        # try:
-        #     self.__WEATHER = self.__MANAGER.weather_at_place(self.__CITY_NAME)
-        # except exceptions.NotFoundError:
-        #     self.__WEATHER = self.__MANAGER.weather_at_place('Астана')
         try:
             weather_result = self.__MANAGER.weather_at_place(self.__CITY_NAME)
         except exceptions.NotFoundError:
