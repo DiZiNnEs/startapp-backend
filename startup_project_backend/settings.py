@@ -25,7 +25,7 @@ SECRET_KEY = 'u9j!dad@t+0zf+@j$mdp4-_)jzcz^99woez1swwb+hm(i6+c&a'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.env_bool('DEBUG')
 
-ALLOWED_HOSTS = [env.env('HOST')]
+ALLOWED_HOSTS = [env.env('HOST'), '127.0.0.1']
 
 
 # Application definition

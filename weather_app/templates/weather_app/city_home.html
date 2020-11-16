@@ -21,7 +21,7 @@
             <img class="menu-btn" src="{% static 'weather_app/images/icons/menu.png' %}" alt="">
         </div>
         <div class="home__features">
-            <div class="title">Город: {{ pk }}</div>
+            <div class="title">Город: {{ city }}</div>
             <div class="title">Температура: <span>{{ temp }}</span></div>
             <div class="title">Ветер: <span>{{ wind }}</span></div>
             <div class="title">Влажность: <span>{{ humidity }}</span></div>
@@ -33,6 +33,14 @@
                 <li>Шапку</li>
             </ul>
         </div>
+
+         <div class="home__clothes">
+            <div class="title">Общая информация как одеться</div>
+            <ul>
+                <li>{{ how_to_clothes }}</li>
+            </ul>
+         </div>
+
     </div>
 </section>
 <div class="overlay"></div>
