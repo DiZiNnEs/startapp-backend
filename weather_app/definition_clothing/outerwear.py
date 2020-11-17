@@ -1,8 +1,8 @@
 class Outerwear:
-    def __init__(self, temperature) -> None:
+    def __init__(self, temperature: int) -> None:
         self.__TEMPERATURE = temperature
 
-    def get_outerwear_recommendation(self) -> str:
+    def get_outerwear_result(self) -> str:
         return self.__handle_outerwear()
 
     def __handle_outerwear(self) -> str:
@@ -41,7 +41,5 @@ class Outerwear:
             for outerwear in RECOMMENDATION:
                 if self.__TEMPERATURE <= outerwear:
                     return RECOMMENDATION.get(outerwear)
-                else:
-                    continue
         except Exception as ex:
             print(ex)
