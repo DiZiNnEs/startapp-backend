@@ -5,6 +5,9 @@ class DailyDress:
     def __init__(self, temperature) -> None:
         self.__TEMPERATURE = temperature
 
+    def handle_temperature_to_dress(self) -> str:
+        return self.__handle_recommendation()
+
     def __handle_recommendation(self) -> str:
         RECOMMENDATION = {
             -30: 'На улице мороз не выходите!',
@@ -30,7 +33,3 @@ class DailyDress:
                     continue
             except Exception as ex:
                 print(ex)
-
-    def handle_temperature_to_dress(self):
-        return self.__handle_recommendation()
-

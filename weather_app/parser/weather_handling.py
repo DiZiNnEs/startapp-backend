@@ -5,6 +5,18 @@ class WeatherHandling:
     def __init__(self, get_weather: GetWeather) -> None:
         self.__GET_WEATHER = get_weather
 
+    def temperature_handle(self) -> str:
+        temperature = self.__GET_WEATHER.get_temperature().get('temp')
+        return self.__get_temperature_interpretation(temperature)
+
+    def wind_handle(self) -> str:
+        wind_value = self.__GET_WEATHER.get_wind()[1]
+        return self.__get_wind_interpretation(wind_value)
+
+    def humidity_handle(self) -> str:
+        humidity = self.__GET_WEATHER.get_humidity()
+        return f'{humidity}%'
+
     def __get_temperature_interpretation(self, temperature: int) -> str:
         weathers = {
             0: 'Одевайтесь теплее, на улице холодно',
@@ -18,10 +30,6 @@ class WeatherHandling:
             if temperature <= weather_temperature:
                 return weathers[weather_temperature]
         return 'Сервис временно не работает'
-
-    def temperature_handle(self) -> str:
-        temperature = self.__GET_WEATHER.get_temperature().get('temp')
-        return self.__get_temperature_interpretation(temperature)
 
     def __get_wind_interpretation(self, wind_value: int) -> str:
         wind_dict = {
@@ -44,11 +52,3 @@ class WeatherHandling:
             if wind_value <= wind:
                 return wind_dict[wind]
         return 'Сервис временно не работает'
-
-    def wind_handle(self):
-        wind_value = self.__GET_WEATHER.get_wind()[1]
-        return self.__get_wind_interpretation(wind_value)
-
-    def humidity_handle(self):
-        humidity = self.__GET_WEATHER.get_humidity()
-        return f'{humidity}%'

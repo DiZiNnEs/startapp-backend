@@ -1,11 +1,11 @@
-from weather_app.parser import GetWeather
-
-
 class Outerwear:
     def __init__(self, temperature) -> None:
         self.__TEMPERATURE = temperature
 
-    def __handle_outerwear(self):
+    def get_outerwear_recommendation(self) -> str:
+        return self.__handle_outerwear()
+
+    def __handle_outerwear(self) -> str:
         RECOMMENDATION = {
             -30: 'Старайтесь одеть голову максимально тепло',
             -25: 'Шапку ушанка!',
@@ -29,6 +29,3 @@ class Outerwear:
                     continue
         except Exception as ex:
             print(ex)
-
-    def get_outerwear_recommendation(self):
-        return self.__handle_outerwear()
