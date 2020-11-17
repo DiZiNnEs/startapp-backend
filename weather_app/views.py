@@ -7,8 +7,9 @@ from .parser import (
 )
 
 from .definition_clothing import (
-    DailyDress,
     Headdress,
+    Outerwear,
+    DailyDress,
 )
 
 
@@ -19,13 +20,15 @@ class HomeCityView(generic.TemplateView):
         get_weather_parser = get_weather.GetWeather(city_name=kwargs.get('pk'))
         weather = weather_handling.WeatherHandling(get_weather_parser)
         how_dress = DailyDress(temperature=get_weather_parser.get_temperature().get('temp'))
-        outerwear = Headdress(temperature=get_weather_parser.get_temperature().get('temp'))
+        headdress = Headdress(temperature=get_weather_parser.get_temperature().get('temp'))
+        outerwear = Outerwear(temperature=get_weather_parser.get_temperature().get('temp'))
         context = {
             'city': kwargs.get('pk'),
             'temp': f'{get_weather_parser.get_temperature().get("temp")}°',
             'wind': weather.wind_handle(),
             'humidity': weather.humidity_handle(),
-            'outerwear': outerwear.get_outerwear_recommendation(),
+            'headdress': headdress.get_outerwear_recommendation(),
+            'outerwear': outerwear.get_outerwear_result(),
             'what_to_wear_in_general': how_dress.handle_temperature_to_dress(),
         }
 
