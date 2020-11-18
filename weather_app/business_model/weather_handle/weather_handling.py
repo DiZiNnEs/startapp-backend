@@ -1,4 +1,4 @@
-from weather_app.parser import GetWeather
+from weather_app.business_model.parser import GetWeather
 
 
 class WeatherHandling:
