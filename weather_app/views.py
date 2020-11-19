@@ -5,7 +5,7 @@ from .business_model.parser import get_weather
 from weather_app.business_model.weather_handle import WeatherHandling
 
 from weather_app.business_model.definition_clothing import (
-    ClothesHandlerHandler
+    ClothesHandler
 )
 
 
@@ -46,7 +46,7 @@ class HomeCityView(generic.TemplateView):
     def get_context_data(self, **kwargs):
         get_weather_parser = get_weather.GetWeather(city_name=kwargs.get('pk'))
         weather = WeatherHandling(get_weather_parser)
-        clothes_handler = ClothesHandlerHandler(temperature=get_weather_parser.get_temperature().get('temp'))
+        clothes_handler = ClothesHandler(temperature=get_weather_parser.get_temperature().get('temp'))
         context = {
             'city': kwargs.get('pk'),
             'temp': f'{get_weather_parser.get_temperature().get("temp")}°',
