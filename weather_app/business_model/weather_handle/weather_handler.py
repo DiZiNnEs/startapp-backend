@@ -1,7 +1,7 @@
 from weather_app.business_model.parser import GetWeather
 
 
-class WeatherHandling:
+class WeatherHandler:
     def __init__(self, get_weather: GetWeather) -> None:
         self.__GET_WEATHER = get_weather
 
