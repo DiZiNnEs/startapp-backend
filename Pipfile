@@ -12,6 +12,7 @@ pyowm = "*"
 python-dotenv = "*"
 gunicorn = "*"
 whitenoise = "*"
+pytest = "*"
 
 [requires]
 python_version = "3.9"
