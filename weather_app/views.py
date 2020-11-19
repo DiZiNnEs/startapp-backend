@@ -1,11 +1,9 @@
 from django.views import generic
 
-from .business_model.parser import get_weather
-
-from weather_app.business_model.weather_handle import WeatherHandling
-
-from weather_app.business_model.definition_clothing import (
-    ClothesHandler
+from .business_model import (
+    GetWeather,
+    WeatherHandling,
+    ClothesHandler,
 )
 
 
@@ -44,7 +42,7 @@ class HomeCityView(generic.TemplateView):
     }
 
     def get_context_data(self, **kwargs):
-        get_weather_parser = get_weather.GetWeather(city_name=kwargs.get('pk'))
+        get_weather_parser = GetWeather(city_name=kwargs.get('pk'))
         weather = WeatherHandling(get_weather_parser)
         clothes_handler = ClothesHandler(temperature=get_weather_parser.get_temperature().get('temp'))
         context = {
