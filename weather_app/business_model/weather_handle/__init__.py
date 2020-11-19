@@ -1,1 +1,2 @@
 from .weather_handling import WeatherHandling
+from .weather_recommendation import WeatherRecommendation
