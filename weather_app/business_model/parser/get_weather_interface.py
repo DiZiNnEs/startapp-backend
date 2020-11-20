@@ -18,5 +18,5 @@ class GetWeatherInterface(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def _get_weather(self) -> Observation:
+    def _get_weather_information(self) -> Observation:
         raise NotImplementedError

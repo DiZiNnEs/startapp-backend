@@ -2,12 +2,12 @@ from .clothes_handler import ClothesHandler
 from weather_app.business_model.weather_handle import WeatherRecommendation
 
 
-clothes_handler = ClothesHandler(temperature=5)
+clothes_handler = ClothesHandler(dictionary_recommendations=5)
 weather_recommendation = WeatherRecommendation()
 
 
 def handle_recommendation():
-    return clothes_handler.get_recommendation(recommendation=weather_recommendation.underwear)
+    return clothes_handler.get_clothes_recommendation(dictionary_recommendations=weather_recommendation.underwear)
 
 
 def test_handle_recommendation():

@@ -14,15 +14,15 @@ class GetWeather(GetWeatherInterface):
         self.__MANAGER = self.__API.weather_manager()
 
     def get_temperature(self) -> dict[str: int or None]:
-        return self._get_weather().weather.temperature('celsius')
+        return self._get_weather_information().weather.temperature('celsius')
 
     def get_humidity(self) -> int:
-        return self._get_weather().weather.humidity
+        return self._get_weather_information().weather.humidity
 
     def get_wind(self) -> tuple[str, int]:
-        return next(iter(self._get_weather().weather.wind().items()))
+        return next(iter(self._get_weather_information().weather.wind().items()))
 
-    def _get_weather(self) -> Observation:
+    def _get_weather_information(self) -> Observation:
         try:
             weather_result = self.__MANAGER.weather_at_place(self.__CITY_NAME)
         except exceptions.NotFoundError:
