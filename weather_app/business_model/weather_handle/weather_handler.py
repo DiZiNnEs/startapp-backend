@@ -1,9 +1,11 @@
 from weather_app.business_model.parser import GetWeather
+from .weather_recommendation import WeatherRecommendation
 
 
 class WeatherHandler:
-    def __init__(self, get_weather: GetWeather) -> None:
+    def __init__(self, get_weather: GetWeather, weather_recommendation: WeatherRecommendation) -> None:
         self.__GET_WEATHER = get_weather
+        self.__WEATHER_RECOMMENDATION = weather_recommendation
 
     def temperature_handle(self) -> str:
         temperature = self.__GET_WEATHER.get_temperature().get('temp')
@@ -18,13 +20,7 @@ class WeatherHandler:
         return f'{humidity}%'
 
     def __get_temperature_interpretation(self, temperature: int) -> str:
-        weathers = {
-            0: 'Одевайтесь теплее, на улице холодно',
-            5: 'На улице холодно, накиньте куртку',
-            10: 'На улице прохладно, наденьте легкую куртку',
-            15: 'На улице не так холодно, но расслаблять не стоит',
-            20: 'Погода отличная, одевайтесь более открыто',
-        }
+        weathers = self.__WEATHER_RECOMMENDATION.weathers
 
         for weather_temperature in weathers:
             if temperature <= weather_temperature:
@@ -32,21 +28,7 @@ class WeatherHandler:
         return 'Сервис временно не работает'
 
     def __get_wind_interpretation(self, wind_value: int) -> str:
-        wind_dict = {
-            0: 'Ветра нету',
-            1.5: 'Тихий ветер',
-            3.3: 'Легкий бриз',
-            5.4: 'Слабый бриз',
-            7.9: 'Умеренный бриз',
-            10.7: 'Свежий бриз',
-            13.8: 'Сильный брез',
-            17.8: 'Крепкий ветер',
-            20.7: 'Буря',
-            24.4: 'Шторм (сильная буря)',
-            28.4: 'Сильный шторм (жесткая буря)',
-            32.6: 'Жетский шторм (жетская буря)',
-            32.7: 'Ураган',
-        }
+        wind_dict = self.__WEATHER_RECOMMENDATION.wind
 
         for wind in wind_dict:
             if wind_value <= wind:
