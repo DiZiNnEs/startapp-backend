@@ -12,9 +12,9 @@ class HomeCityView(generic.TemplateView):
     template_name = 'weather_app/city_home.html'
 
     def get_context_data(self, **kwargs):
-        get_weather_parser = GetWeather(city_name=kwargs.get('pk'))
-        weather = WeatherHandler(get_weather_parser)
         weather_recommendation = WeatherRecommendation()
+        get_weather_parser = GetWeather(city_name=kwargs.get('pk'))
+        weather = WeatherHandler(get_weather_parser, weather_recommendation)
         clothes_handler = ClothesHandler(temperature=get_weather_parser.get_temperature().get('temp'),
                                          humidity=get_weather_parser.get_humidity(),
                                          wind=get_weather_parser.get_wind(),

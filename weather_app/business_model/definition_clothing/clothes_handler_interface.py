@@ -2,21 +2,9 @@ from abc import ABC, abstractmethod
 
 
 class ClothesHandlerInterface(ABC):
-    def __init__(self, temperature: int,
-                 humidity: any,
-                 wind: any,
-                 headdress_dictionary: dict,
-                 outerwear_dictionary: dict,
-                 bottom_dictionary: dict,
-                 shoes_dictionary: dict) -> None:
-        self._TEMPERATURE = temperature
-        self._HEADDRESS_DICTIONARY = headdress_dictionary
-        self._OUTERWEAR_DICTIONARY = outerwear_dictionary
-        self._BOTTOM_DICTIONARY = bottom_dictionary
-        self._SHOES_DICTIONARY = shoes_dictionary
-
+    @abstractmethod
     def get_clothes_recommendation(self, dictionary_recommendations: dict) -> str:
-        return self._handle_clothes_recommendation(dictionary_recommendations)
+        raise NotImplementedError
 
     @abstractmethod
     def _handle_clothes_recommendation(self, dictionary_recommendations: dict) -> str:

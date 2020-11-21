@@ -2,55 +2,36 @@ from weather_app.business_model.definition_clothing.clothes_handler_interface im
 
 
 class ClothesHandler(ClothesHandlerInterface):
+    def __init__(self, temperature: int,
+                 humidity: any,
+                 wind: any,
+                 headdress_dictionary: dict,
+                 outerwear_dictionary: dict,
+                 bottom_dictionary: dict,
+                 shoes_dictionary: dict) -> None:
+        self._TEMPERATURE = temperature
+        self._HEADDRESS_DICTIONARY = headdress_dictionary
+        self._OUTERWEAR_DICTIONARY = outerwear_dictionary
+        self._BOTTOM_DICTIONARY = bottom_dictionary
+        self._SHOES_DICTIONARY = shoes_dictionary
+
+    def get_clothes_recommendation(self, dictionary_recommendations: dict) -> str:
+        return self._handle_clothes_recommendation(dictionary_recommendations)
+
     def _handle_clothes_recommendation(self, dictionary_recommendations: dict) -> str:
-        for temperature in dictionary_recommendations:
-            try:
-                if self._TEMPERATURE <= temperature:
-                    return dictionary_recommendations[temperature]
-                else:
-                    continue
-            except Exception as ex:
-                print(ex)
+        return self.__processing_everything(dictionary_recommendations)
 
     def handle_headdress_recommendation(self) -> str:
-        for temperature in self._HEADDRESS_DICTIONARY:
-            try:
-                if self._TEMPERATURE <= temperature:
-                    return self._HEADDRESS_DICTIONARY[temperature]
-                else:
-                    continue
-            except Exception as ex:
-                print(ex)
+        return self.__processing_everything(self._HEADDRESS_DICTIONARY)
 
     def handle_outerwear_recommendation(self) -> str:
-        for temperature in self._OUTERWEAR_DICTIONARY:
-            try:
-                if self._TEMPERATURE <= temperature:
-                    return self._OUTERWEAR_DICTIONARY[temperature]
-                else:
-                    continue
-            except Exception as ex:
-                print(ex)
+        return self.__processing_everything(self._OUTERWEAR_DICTIONARY)
 
     def handle_bottom_recommendation(self) -> str:
-        for temperature in self._BOTTOM_DICTIONARY:
-            try:
-                if self._TEMPERATURE <= temperature:
-                    return self._BOTTOM_DICTIONARY[temperature]
-                else:
-                    continue
-            except Exception as ex:
-                print(ex)
+        return self.__processing_everything(self._BOTTOM_DICTIONARY)
 
     def handle_shoes_recommendation(self) -> str:
-        for temperature in self._SHOES_DICTIONARY:
-            try:
-                if self._TEMPERATURE <= temperature:
-                    return self._SHOES_DICTIONARY[temperature]
-                else:
-                    continue
-            except Exception as ex:
-                print(ex)
+        return self.__processing_everything(self._SHOES_DICTIONARY)
 
     def _handle_temperature(self):
         pass
@@ -60,3 +41,13 @@ class ClothesHandler(ClothesHandlerInterface):
 
     def _handle_wind(self):
         pass
+
+    def __processing_everything(self, recommendation_dictionary: dict[int: str]):
+        for temperature in recommendation_dictionary:
+            try:
+                if self._TEMPERATURE <= temperature:
+                    return recommendation_dictionary[temperature]
+                else:
+                    continue
+            except Exception as ex:
+                print(ex)
