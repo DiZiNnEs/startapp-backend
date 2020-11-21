@@ -23,19 +23,19 @@ class ClothesHandlerInterface(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def _handle_headdress_recommendation(self) -> str:
+    def handle_headdress_recommendation(self) -> str:
         raise NotImplementedError
 
     @abstractmethod
-    def _handle_outerwear_recommendation(self) -> str:
+    def handle_outerwear_recommendation(self) -> str:
         raise NotImplementedError
 
     @abstractmethod
-    def _handle_bottom_recommendation(self) -> str:
+    def handle_bottom_recommendation(self) -> str:
         raise NotImplementedError
 
     @abstractmethod
-    def _handle_shoes_recommendation(self) -> str:
+    def handle_shoes_recommendation(self) -> str:
         raise NotImplementedError
 
     @abstractmethod

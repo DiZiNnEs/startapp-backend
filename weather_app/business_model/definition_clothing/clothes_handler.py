@@ -12,7 +12,7 @@ class ClothesHandler(ClothesHandlerInterface):
             except Exception as ex:
                 print(ex)
 
-    def _handle_headdress_recommendation(self) -> str:
+    def handle_headdress_recommendation(self) -> str:
         for temperature in self._HEADDRESS_DICTIONARY:
             try:
                 if self._TEMPERATURE <= temperature:
@@ -22,7 +22,7 @@ class ClothesHandler(ClothesHandlerInterface):
             except Exception as ex:
                 print(ex)
 
-    def _handle_outerwear_recommendation(self) -> str:
+    def handle_outerwear_recommendation(self) -> str:
         for temperature in self._OUTERWEAR_DICTIONARY:
             try:
                 if self._TEMPERATURE <= temperature:
@@ -32,7 +32,7 @@ class ClothesHandler(ClothesHandlerInterface):
             except Exception as ex:
                 print(ex)
 
-    def _handle_bottom_recommendation(self) -> str:
+    def handle_bottom_recommendation(self) -> str:
         for temperature in self._BOTTOM_DICTIONARY:
             try:
                 if self._TEMPERATURE <= temperature:
@@ -42,7 +42,7 @@ class ClothesHandler(ClothesHandlerInterface):
             except Exception as ex:
                 print(ex)
 
-    def _handle_shoes_recommendation(self) -> str:
+    def handle_shoes_recommendation(self) -> str:
         for temperature in self._SHOES_DICTIONARY:
             try:
                 if self._TEMPERATURE <= temperature:

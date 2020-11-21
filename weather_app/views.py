@@ -21,16 +21,16 @@ class HomeCityView(generic.TemplateView):
                                          headdress_dictionary=weather_recommendation.headdress,
                                          outerwear_dictionary=weather_recommendation.outerwear,
                                          bottom_dictionary=weather_recommendation.underwear,
-                                         shoes_dictionary=weather_recommendation.shoes,)
+                                         shoes_dictionary=weather_recommendation.shoes, )
         context = {
             'city': kwargs.get('pk'),
             'temp': f'{get_weather_parser.get_temperature().get("temp")}°',
             'wind': weather.wind_handle(),
             'humidity': weather.humidity_handle(),
-            'headdress': clothes_handler.get_clothes_recommendation(weather_recommendation.headdress),
-            'outerwear': clothes_handler.get_clothes_recommendation(weather_recommendation.headdress),
-            'bottom': clothes_handler.get_clothes_recommendation(weather_recommendation.headdress),
-            'shoes': clothes_handler.get_clothes_recommendation(weather_recommendation.headdress),
+            'headdress': clothes_handler.handle_headdress_recommendation(),
+            'outerwear': clothes_handler.handle_outerwear_recommendation(),
+            'bottom': clothes_handler.handle_bottom_recommendation(),
+            'shoes': clothes_handler.handle_shoes_recommendation(),
             'what_to_wear_in_general': clothes_handler.get_clothes_recommendation(weather_recommendation.headdress),
         }
 
