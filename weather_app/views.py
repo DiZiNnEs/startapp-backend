@@ -14,8 +14,14 @@ class HomeCityView(generic.TemplateView):
     def get_context_data(self, **kwargs):
         get_weather_parser = GetWeather(city_name=kwargs.get('pk'))
         weather = WeatherHandler(get_weather_parser)
-        clothes_handler = ClothesHandler(temperature=get_weather_parser.get_temperature().get('temp'))
         weather_recommendation = WeatherRecommendation()
+        clothes_handler = ClothesHandler(temperature=get_weather_parser.get_temperature().get('temp'),
+                                         humidity=get_weather_parser.get_humidity(),
+                                         wind=get_weather_parser.get_wind(),
+                                         headdress_dictionary=weather_recommendation.headdress,
+                                         outerwear_dictionary=weather_recommendation.outerwear,
+                                         bottom_dictionary=weather_recommendation.underwear,
+                                         shoes_dictionary=weather_recommendation.shoes,)
         context = {
             'city': kwargs.get('pk'),
             'temp': f'{get_weather_parser.get_temperature().get("temp")}°',
