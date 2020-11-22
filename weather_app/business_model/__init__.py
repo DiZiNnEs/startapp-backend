@@ -1,4 +1,4 @@
-from .parser import GetWeather
-from .weather_handle import WeatherHandler
-from .definition_clothing import ClothesHandler
+from .parser import WeatherParser
+from .weather_handle import Weather
+from .definition_clothing import WeatherClothes
 from .weather_handle import WeatherRecommendation

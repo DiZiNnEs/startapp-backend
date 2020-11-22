@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 
-class ClothesHandlerInterface(ABC):
+class WeatherClothesInterface(ABC):
     @abstractmethod
     def get_clothes_recommendation(self, dictionary_recommendations: dict) -> str:
         raise NotImplementedError

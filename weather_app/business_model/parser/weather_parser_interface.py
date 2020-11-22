@@ -3,7 +3,7 @@ from abc import ABC, abstractmethod
 from pyowm.weatherapi25.observation import Observation
 
 
-class GetWeatherInterface(ABC):
+class WeatherParserInterface(ABC):
 
     @abstractmethod
     def get_temperature(self) -> dict[str: int or None]:

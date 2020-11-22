@@ -1,8 +1,8 @@
-from weather_app.business_model.definition_clothing.clothes_handler_interface import ClothesHandlerInterface
+from weather_app.business_model.definition_clothing.weather_clothes_interface import WeatherClothesInterface
 from ..common_handler import common_handler_function
 
 
-class ClothesHandler(ClothesHandlerInterface):
+class WeatherClothes(WeatherClothesInterface):
     def __init__(self, temperature: int,
                  humidity: any,
                  wind: any,

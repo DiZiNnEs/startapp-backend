@@ -1,1 +1,1 @@
-from .clothes_handler import ClothesHandler
+from .weather_clothes import WeatherClothes

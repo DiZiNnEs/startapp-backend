@@ -1,8 +1,8 @@
-from .clothes_handler import ClothesHandler
+from .weather_clothes import WeatherClothes
 from weather_app.business_model.weather_handle import WeatherRecommendation
 
 
-clothes_handler = ClothesHandler(dictionary_recommendations=5)
+clothes_handler = WeatherClothes()
 weather_recommendation = WeatherRecommendation()
 
 

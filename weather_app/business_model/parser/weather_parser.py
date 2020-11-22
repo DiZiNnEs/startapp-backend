@@ -4,10 +4,10 @@ from pyowm.commons import exceptions
 from pyowm.weatherapi25.observation import Observation
 
 from startup_project_backend.env import env
-from .get_weather_interface import GetWeatherInterface
+from .weather_parser_interface import WeatherParserInterface
 
 
-class GetWeather(GetWeatherInterface):
+class WeatherParser(WeatherParserInterface):
     def __init__(self, city_name: str) -> None:
         self.__CITY_NAME = city_name
         self.__API = OWM(env('OPENWEATHERAPI'))

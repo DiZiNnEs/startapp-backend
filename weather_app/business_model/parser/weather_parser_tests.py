@@ -1,6 +1,6 @@
-from .get_weather import GetWeather
+from .weather_parser import WeatherParser
 
-get_weather = GetWeather(city_name='London')
+get_weather = WeatherParser(city_name='London')
 
 
 def test_get_temperature():

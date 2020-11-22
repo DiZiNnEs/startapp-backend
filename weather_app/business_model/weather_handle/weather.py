@@ -1,10 +1,10 @@
-from weather_app.business_model.parser import GetWeather
+from weather_app.business_model.parser import WeatherParser
 from .weather_recommendation import WeatherRecommendation
 from ..common_handler import common_handler_function
 
 
-class WeatherHandler:
-    def __init__(self, get_weather: GetWeather, weather_recommendation: WeatherRecommendation) -> None:
+class Weather:
+    def __init__(self, get_weather: WeatherParser, weather_recommendation: WeatherRecommendation) -> None:
         self.__GET_WEATHER = get_weather
         self.__WEATHER_RECOMMENDATION = weather_recommendation
 

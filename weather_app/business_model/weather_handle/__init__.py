@@ -1,2 +1,2 @@
-from .weather_handler import WeatherHandler
+from .weather import Weather
 from .weather_recommendation import WeatherRecommendation

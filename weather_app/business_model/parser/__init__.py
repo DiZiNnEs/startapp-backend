@@ -1,1 +1,1 @@
-from .get_weather import GetWeather
+from .weather_parser import WeatherParser
