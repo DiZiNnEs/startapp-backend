@@ -1,4 +1,4 @@
-def temperature_handler(recommendation_dictionary: dict[int: str]) -> str:
+def common_handler_function(recommendation_dictionary: dict[int: str]) -> str:
     for temperature in recommendation_dictionary:
         try:
             if temperature <= temperature:

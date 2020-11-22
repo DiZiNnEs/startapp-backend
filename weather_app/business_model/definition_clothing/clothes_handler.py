@@ -1,5 +1,5 @@
 from weather_app.business_model.definition_clothing.clothes_handler_interface import ClothesHandlerInterface
-from ..common_handler import temperature_handler
+from ..common_handler import common_handler_function
 
 
 class ClothesHandler(ClothesHandlerInterface):
@@ -17,28 +17,19 @@ class ClothesHandler(ClothesHandlerInterface):
         self._SHOES_DICTIONARY = shoes_dictionary
 
     def get_clothes_recommendation(self, dictionary_recommendations: dict) -> str:
-        return temperature_handler(dictionary_recommendations)
+        return common_handler_function(dictionary_recommendations)
 
     def _handle_clothes_recommendation(self, dictionary_recommendations: dict) -> str:
-        return temperature_handler(dictionary_recommendations)
+        return common_handler_function(dictionary_recommendations)
 
     def handle_headdress_recommendation(self) -> str:
-        return temperature_handler(self._HEADDRESS_DICTIONARY)
+        return common_handler_function(self._HEADDRESS_DICTIONARY)
 
     def handle_outerwear_recommendation(self) -> str:
-        return temperature_handler(self._OUTERWEAR_DICTIONARY)
+        return common_handler_function(self._OUTERWEAR_DICTIONARY)
 
     def handle_bottom_recommendation(self) -> str:
-        return temperature_handler(self._BOTTOM_DICTIONARY)
+        return common_handler_function(self._BOTTOM_DICTIONARY)
 
     def handle_shoes_recommendation(self) -> str:
-        return temperature_handler(self._SHOES_DICTIONARY)
-
-    def _handle_temperature(self):
-        pass
-
-    def _handle_humidity(self):
-        pass
-
-    def _handle_wind(self):
-        pass
+        return common_handler_function(self._SHOES_DICTIONARY)

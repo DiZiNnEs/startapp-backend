@@ -25,15 +25,3 @@ class ClothesHandlerInterface(ABC):
     @abstractmethod
     def handle_shoes_recommendation(self) -> str:
         raise NotImplementedError
-
-    @abstractmethod
-    def _handle_temperature(self):
-        raise NotImplementedError
-
-    @abstractmethod
-    def _handle_humidity(self):
-        raise NotImplementedError
-
-    @abstractmethod
-    def _handle_wind(self):
-        raise NotImplementedError

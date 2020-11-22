@@ -1,1 +1,1 @@
-from .weather_handler import temperature_handler
+from .weather_handler import common_handler_function
