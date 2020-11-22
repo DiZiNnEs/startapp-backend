@@ -1,5 +1,6 @@
 from weather_app.business_model.parser import GetWeather
 from .weather_recommendation import WeatherRecommendation
+from ..common_handler import temperature_handler
 
 
 class WeatherHandler:
@@ -8,8 +9,7 @@ class WeatherHandler:
         self.__WEATHER_RECOMMENDATION = weather_recommendation
 
     def temperature_handle(self) -> str:
-        temperature = self.__GET_WEATHER.get_temperature().get('temp')
-        return self.__get_temperature_interpretation(temperature)
+        return self.__get_temperature_interpretation()
 
     def wind_handle(self) -> str:
         wind_value = self.__GET_WEATHER.get_wind()[1]
@@ -19,13 +19,9 @@ class WeatherHandler:
         humidity = self.__GET_WEATHER.get_humidity()
         return f'{humidity}%'
 
-    def __get_temperature_interpretation(self, temperature: int) -> str:
+    def __get_temperature_interpretation(self) -> str:
         weathers = self.__WEATHER_RECOMMENDATION.weathers
-
-        for weather_temperature in weathers:
-            if temperature <= weather_temperature:
-                return weathers[weather_temperature]
-        return 'Сервис временно не работает'
+        return temperature_handler(weathers)
 
     def __get_wind_interpretation(self, wind_value: int) -> str:
         wind_dict = self.__WEATHER_RECOMMENDATION.wind

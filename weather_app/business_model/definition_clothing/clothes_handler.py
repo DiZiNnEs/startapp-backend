@@ -1,4 +1,5 @@
 from weather_app.business_model.definition_clothing.clothes_handler_interface import ClothesHandlerInterface
+from ..common_handler import temperature_handler
 
 
 class ClothesHandler(ClothesHandlerInterface):
@@ -16,22 +17,22 @@ class ClothesHandler(ClothesHandlerInterface):
         self._SHOES_DICTIONARY = shoes_dictionary
 
     def get_clothes_recommendation(self, dictionary_recommendations: dict) -> str:
-        return self._handle_clothes_recommendation(dictionary_recommendations)
+        return temperature_handler(dictionary_recommendations)
 
     def _handle_clothes_recommendation(self, dictionary_recommendations: dict) -> str:
-        return self.__processing_everything(dictionary_recommendations)
+        return temperature_handler(dictionary_recommendations)
 
     def handle_headdress_recommendation(self) -> str:
-        return self.__processing_everything(self._HEADDRESS_DICTIONARY)
+        return temperature_handler(self._HEADDRESS_DICTIONARY)
 
     def handle_outerwear_recommendation(self) -> str:
-        return self.__processing_everything(self._OUTERWEAR_DICTIONARY)
+        return temperature_handler(self._OUTERWEAR_DICTIONARY)
 
     def handle_bottom_recommendation(self) -> str:
-        return self.__processing_everything(self._BOTTOM_DICTIONARY)
+        return temperature_handler(self._BOTTOM_DICTIONARY)
 
     def handle_shoes_recommendation(self) -> str:
-        return self.__processing_everything(self._SHOES_DICTIONARY)
+        return temperature_handler(self._SHOES_DICTIONARY)
 
     def _handle_temperature(self):
         pass
@@ -41,13 +42,3 @@ class ClothesHandler(ClothesHandlerInterface):
 
     def _handle_wind(self):
         pass
-
-    def __processing_everything(self, recommendation_dictionary: dict[int: str]):
-        for temperature in recommendation_dictionary:
-            try:
-                if self._TEMPERATURE <= temperature:
-                    return recommendation_dictionary[temperature]
-                else:
-                    continue
-            except Exception as ex:
-                print(ex)
