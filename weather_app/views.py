@@ -38,7 +38,7 @@ class HomeCityView(generic.TemplateView):
 
 
 class CityView(generic.TemplateView):
-    template_name = 'weather_app/city.html'
+    template_name = 'weather_app/input_city.html'
 
 
 class IndexView(generic.TemplateView):
