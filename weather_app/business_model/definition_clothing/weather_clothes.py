@@ -19,17 +19,14 @@ class WeatherClothes(WeatherClothesInterface):
     def get_clothes_recommendation(self, dictionary_recommendations: dict) -> str:
         return common_handler_function(dictionary_recommendations)
 
-    def _handle_clothes_recommendation(self, dictionary_recommendations: dict) -> str:
-        return common_handler_function(dictionary_recommendations)
-
-    def handle_headdress_recommendation(self) -> str:
+    def get_headdress_recommendation(self) -> str:
         return common_handler_function(self._HEADDRESS_DICTIONARY)
 
-    def handle_outerwear_recommendation(self) -> str:
+    def get_outerwear_recommendation(self) -> str:
         return common_handler_function(self._OUTERWEAR_DICTIONARY)
 
-    def handle_bottom_recommendation(self) -> str:
+    def get_bottom_recommendation(self) -> str:
         return common_handler_function(self._BOTTOM_DICTIONARY)
 
-    def handle_shoes_recommendation(self) -> str:
+    def get_shoes_recommendation(self) -> str:
         return common_handler_function(self._SHOES_DICTIONARY)

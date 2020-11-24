@@ -27,10 +27,10 @@ class HomeCityView(generic.TemplateView):
             'temp': f'{get_weather_parser.get_temperature().get("temp")}°',
             'wind': weather.wind_handle(),
             'humidity': weather.humidity_handle(),
-            'headdress': clothes_handler.handle_headdress_recommendation(),
-            'outerwear': clothes_handler.handle_outerwear_recommendation(),
-            'bottom': clothes_handler.handle_bottom_recommendation(),
-            'shoes': clothes_handler.handle_shoes_recommendation(),
+            'headdress': clothes_handler.get_headdress_recommendation(),
+            'outerwear': clothes_handler.get_outerwear_recommendation(),
+            'bottom': clothes_handler.get_bottom_recommendation(),
+            'shoes': clothes_handler.get_shoes_recommendation(),
             'what_to_wear_in_general': clothes_handler.get_clothes_recommendation(weather_recommendation.headdress),
         }
 

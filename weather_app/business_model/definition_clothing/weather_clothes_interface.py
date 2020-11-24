@@ -7,21 +7,17 @@ class WeatherClothesInterface(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def _handle_clothes_recommendation(self, dictionary_recommendations: dict) -> str:
+    def get_headdress_recommendation(self) -> str:
         raise NotImplementedError
 
     @abstractmethod
-    def handle_headdress_recommendation(self) -> str:
+    def get_outerwear_recommendation(self) -> str:
         raise NotImplementedError
 
     @abstractmethod
-    def handle_outerwear_recommendation(self) -> str:
+    def get_bottom_recommendation(self) -> str:
         raise NotImplementedError
 
     @abstractmethod
-    def handle_bottom_recommendation(self) -> str:
-        raise NotImplementedError
-
-    @abstractmethod
-    def handle_shoes_recommendation(self) -> str:
+    def get_shoes_recommendation(self) -> str:
         raise NotImplementedError
