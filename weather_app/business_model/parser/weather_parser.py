@@ -11,7 +11,7 @@ class WeatherParser(WeatherParserInterface):
     def __init__(self, city_name: str) -> None:
         self.__CITY_NAME = city_name
         self.__API = OWM(env('OPENWEATHERAPI'))
-        self.__MANAGER = self.__API.weather_manager()
+        self.__WEATHER_MANAGER = self.__API.weather_manager()
 
     def get_temperature(self) -> dict[str: int or None]:
         return self._get_weather_information().weather.temperature('celsius')
@@ -24,7 +24,7 @@ class WeatherParser(WeatherParserInterface):
 
     def _get_weather_information(self) -> Observation:
         try:
-            weather_result = self.__MANAGER.weather_at_place(self.__CITY_NAME)
+            weather_result = self.__WEATHER_MANAGER.weather_at_place(self.__CITY_NAME)
         except exceptions.NotFoundError:
-            weather_result = self.__MANAGER.weather_at_place('Astana')
+            weather_result = self.__WEATHER_MANAGER.weather_at_place('Astana')
         return weather_result
