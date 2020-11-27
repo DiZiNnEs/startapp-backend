@@ -20,8 +20,8 @@ class Weather:
 
     def __get_temperature_interpretation(self) -> str:
         weathers = self.__WEATHER_RECOMMENDATION.weathers
-        return common_handler_function(weathers)
+        return common_handler_function(weathers, 2)
 
     def __get_wind_interpretation(self) -> str:
         wind_dict = self.__WEATHER_RECOMMENDATION.wind
-        return common_handler_function(wind_dict)
+        return common_handler_function(wind_dict, 2)
